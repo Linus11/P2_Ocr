@@ -14,8 +14,6 @@ public class AnalyticsCounter {
 	private static int rashCount = 0;		// initialize to 0
 	private static int pupilCount = 0;		// initialize to 0
 */	
-	public static final String inputLink = "C:/Users/campus/eclipse-workspace/P2_Ocr/src/symptoms.txt";
-	public static final String outputLink = "C:/Users/campus/eclipse-workspace/P2_Ocr/src/reslutRech.txt"; //results.out
 	
 	public static void main(String args[]) throws Exception {
 		
@@ -23,8 +21,8 @@ public class AnalyticsCounter {
 		//ReadSymptomDataFromFile read = new ReadSymptomDataFromFile("C:/Users/campus/eclipse-workspace/P2_Ocr/src/symptoms.txt");
 		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile();
 		read.getSymptoms();
-		
-		
+		WriteSymptomDataFromFile write = new WriteSymptomDataFromFile();
+		write.transfert();
 		
 		
 	}

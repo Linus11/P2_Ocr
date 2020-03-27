@@ -59,7 +59,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		Map<String, Integer> frequency = new HashMap<>();
 		try {
 			Path path = Paths.get(System.getProperty("user.dir"))
-					.resolve(AnalyticsCounter.inputLink);
+					.resolve(config.inputLink);
 			BufferedReader reader;
 			reader = new BufferedReader(new FileReader(path.toFile()));
 		
@@ -96,6 +96,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 		 
 		 System.out.println(frequency);
+		 
+		 File fileOne=new File(config.outOccurences);
+	        FileOutputStream fos=new FileOutputStream(fileOne);
+	        ObjectOutputStream oos=new ObjectOutputStream(fos);
+
+	        oos.writeObject(frequency);
 		 
 		 for(Map.Entry<String, Integer> items : frequency.entrySet()) {
 			 
@@ -143,23 +149,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	
 	
-	/*public void transfert() throws IOException {
-
-		
-		var source = Paths.get("C:/Users/campus/eclipse-workspace/P2_Ocr/src/symptoms.txt");
-        var dest = Paths.get("C:/Users/campus/eclipse-workspace/P2_Ocr/src/resultRech.txt");
-        
-        //var fis = Files.newInputStream(source);
-        var fos = Files.newOutputStream(dest);
-        
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = fis.read(buffer)) > 0) {
-        	fos.write(buffer, 0, length);
-        }*/
-
-            
-        }
+}
 	
 	
 	 
