@@ -1,4 +1,4 @@
-package src.com.hemebiotech.analytics;
+package com.hemebiotech;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package src.com.hemebiotech.analytics;
+package com.hemebiotech;
 
 
 public class config {
