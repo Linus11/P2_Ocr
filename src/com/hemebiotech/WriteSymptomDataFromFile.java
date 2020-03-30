@@ -12,15 +12,19 @@ public class WriteSymptomDataFromFile {
 	
 	public Map<String, Integer> transfert() throws IOException{
 
-	
-	//var source = Paths.get("C:/Users/campus/eclipse-workspace/P2_Ocr/src/symptoms.txt");
-	//var fis = Files.newInputStream(source);	
+		/**
+		 * Prend le fichier outOccurences et le transferer dans un fichier result.out
+		 * 	
+		 * @return write liste des symthomes + occurences
+		 * 
+		 */
+
 		
 		Map<String, Integer>write = new HashMap();
 		String writeString;
 
 			
-			var source = Paths.get(config.inputLink);
+			var source = Paths.get(config.outOccurences);
 	        var dest = Paths.get(config.outputLink);
 	        
 	        var fis = Files.newInputStream(source);
@@ -32,7 +36,7 @@ public class WriteSymptomDataFromFile {
 	        	fos.write(buffer, 0, length);
 	        	
 	        }
-			return null;
+			return write;
 
 	            
 	        }

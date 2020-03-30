@@ -18,7 +18,7 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		
 		
-		//ReadSymptomDataFromFile read = new ReadSymptomDataFromFile("C:/Users/campus/eclipse-workspace/P2_Ocr/src/symptoms.txt");
+		
 		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile();
 		read.getSymptoms();
 		WriteSymptomDataFromFile write = new WriteSymptomDataFromFile();

@@ -78,7 +78,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			line = reader.readLine();
 		}
 		
-		
+		System.out.println("SIMO" + frequency);
 		
 		/**
 		 * Instantier un objet file, 
@@ -88,16 +88,16 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		 * 
 		 */
 		 
-		 File fileOne=new File(config.outOccurences);
-	        FileOutputStream fos=new FileOutputStream(fileOne);
-	        ObjectOutputStream oos=new ObjectOutputStream(fos);
+		 FileOutputStream fileOut=new FileOutputStream(config.outOccurences);
+	        ObjectOutputStream out=new ObjectOutputStream(fileOut);
+	        
 
-	        oos.writeObject(frequency);
+	        out.writeObject(frequency);
+	        out.close();
 	        
 	        /**
 			 * Afficher la liste finale des sympthomes avec leur occurences dans une MapList
-			 * 
-			 * 
+			 *  
 			 */
 		 
 		 for(Map.Entry<String, Integer> items : frequency.entrySet()) {
