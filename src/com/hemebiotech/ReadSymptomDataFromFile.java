@@ -23,62 +23,50 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
-
-
 /**
- * Simple brute force implementation
+ * Implémentation dd la classe ReadSymptomDataFromFile
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filePath;
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
-
-
-
-
-	private Map<String, Integer> symtomes;
-	
 	/**
+	 * Récupérer le fichier de la liste des symptomes, le mettre dans une HashMap 'frequency' 
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	
 
+	
 	public  Map<String, Integer> getSymptoms(){
+		/**
+		 * Map<String, Integer> getSymptoms() retourn la liste des sympthomes et le nombre des occurences
+		 * @return la liste des sympthomes et le nombre des occurences
+		 */
 		
 		Map<String, Integer> frequency = new HashMap<>();
+		
+		/**
+		 * Lever une exception si le transfert du data est mis en échec 
+		 * 
+		 */
 		try {
 			Path path = Paths.get(System.getProperty("user.dir"))
 					.resolve(config.inputLink);
 			BufferedReader reader;
 			reader = new BufferedReader(new FileReader(path.toFile()));
-		
-		
-		
 	
+			/**
+			 * déclarer un reader et l'affecter à un string 'line'
+			 * 
+			 */
 		String line = reader.readLine();
+		
+		/**
+		 * Si line n'est pas null boucler sur frequency 
+		 * compter le nombre des occurence de 'line' dans la liste des sympthome frequency
+		 * Si pas d'occurence ne pas incrémenter l'occurence '(line, 1)'
+		 * 
+		 */
 		while(line != null) {
-			//System.out.println("Processing line: " + line);
-			
-			/*if(!line.trim().equals("")) {
-				String [] words = line.split("\n");//
-				
-				for(String word : words) {
-					if(word == null || word.trim().equals("")) {
-						continue;
-					}
-					String processed = word.toLowerCase();
-					processed = processed.replace(",", "-");*/
 					
 					if(frequency.containsKey(line)) {
 						frequency.put(line, 
@@ -86,51 +74,38 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					} else {
 						frequency.put(line, 1);
 					}
-				//}
-			//}
 			
 			line = reader.readLine();
 		}
 		
 		
 		
-		 
-		 System.out.println(frequency);
+		/**
+		 * Instantier un objet file, 
+		 * Indiquer le fichier de sortie dans l'attribut 'config.outOccurences'
+		 * 
+		 * @see config
+		 * 
+		 */
 		 
 		 File fileOne=new File(config.outOccurences);
 	        FileOutputStream fos=new FileOutputStream(fileOne);
 	        ObjectOutputStream oos=new ObjectOutputStream(fos);
 
 	        oos.writeObject(frequency);
+	        
+	        /**
+			 * Afficher la liste finale des sympthomes avec leur occurences dans une MapList
+			 * 
+			 * 
+			 */
 		 
 		 for(Map.Entry<String, Integer> items : frequency.entrySet()) {
 			 
 			System.out.println(items.getKey() + " " + items.getValue());
 			
 		 }
-		 
-		 /*FileOutputStream fos;
-		 fos = new FileOutputStream("C:/Users/campus/eclipse-workspace/P2_Ocr/src/resultRech.txt");
-
-		    ObjectOutputStream oos = new ObjectOutputStream(fos);
-		     oos.writeObject(frequency);
-		     oos.close();*/
 		
-		/*
-		 * int mostFrequentlyUsed = 0;
-		String theWord = null;
-		
-		for(String word : frequency.keySet()) {
-			Integer theVal = frequency.get(word);
-			if(theVal > mostFrequentlyUsed) {
-				mostFrequentlyUsed = theVal;
-				theWord = word;
-			}
-		}
-		System.out.println();
-		System.out.printf("Le symptôme le plus fréquent est '%s', %d times", 
-				theWord, mostFrequentlyUsed);
-		 * */
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -141,19 +116,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 	}
 
-	@Override
-	public List<String> GetSymptoms() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	
 	
 }
 	
 	
-	 
-	
-    
-
-
