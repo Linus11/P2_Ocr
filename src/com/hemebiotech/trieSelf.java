@@ -15,18 +15,18 @@ public class trieSelf {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void count(List<String> symptoms) {
+	public void intputSymp(List<String> symptoms) {
 		listSymptoms = symptoms;
 		
 	}
 	
-	public TreeMap<String, Integer> countSymptom(Map<String, Integer> symptome) {
+	public TreeMap<String, Integer> countSymptom(Map<String, Integer> theSymptom) {
 		
 		TreeMap<String, Integer>  countedAlphaSymptoms = new TreeMap<String, Integer>();
 		for (String string : listSymptoms) {
 			if(countedAlphaSymptoms.containsKey(string)) {
-				Integer temp = countedAlphaSymptoms.get(string);
-				countedAlphaSymptoms.replace(string, temp++);
+				Integer wordOcc = countedAlphaSymptoms.get(string);
+				countedAlphaSymptoms.replace(string, wordOcc++);
 				
 				
 			} else {
@@ -34,7 +34,7 @@ public class trieSelf {
 			}
 		}
 		
-		System.out.println("==== trieSelf : countedAlphaSymptoms =====");
+		System.out.println("==== Tester l'encodage  : countedAlphaSymptoms =====");
  		for (Map.Entry<String, Integer> entry : countedAlphaSymptoms.entrySet()) {
  			
 			System.out.println(entry.getKey()+ "  " + entry.getValue());

@@ -14,29 +14,13 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 		
+		/*
+		 * Fichier nettoyé externalisations des instantiations dans le fichier 
+		 * @See:  controller.java
+		 * */
 		
 		controller.executer();
 		
-		
-		
-		
-		/**
-		 * Eviter les problèmes d'encodage :
-		 * Serialisation dans un fichier Json, via utilisation d'une bibliothèque
-		 * l'objet obj prend en paramettre la liste ds symptomes triées et l'enregistre dans un fichier "results.json"
-		 * 
-		 */
-//		JSONObject obj = new JSONObject(symptome);
-//		System.out.println(obj);
-//		
-//		 try (FileWriter file = new FileWriter("results.json")) {
-//			 
-//	            file.write(obj.toJSONString());
-//	            file.flush();
-//	 
-//	        } catch (IOException e) {
-//	            e.printStackTrace();
-//	        }
 		
 		
 	}

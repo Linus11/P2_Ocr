@@ -34,6 +34,10 @@ public class WriteSymptomDataFromFile {
 		 */
 			
 		TreeMap<String, Integer> ordre = new TreeMap<>(map);
+		/*
+		 * Ici on boucle sur chaque occurence pour extraire et trier une ligne de mots clés
+		 * 
+		 * */
  		
  		System.out.println("==== List of symptoms ordred =====");
  		for (Map.Entry<String, Integer> entry : ordre.entrySet()) {
@@ -45,18 +49,7 @@ public class WriteSymptomDataFromFile {
 
 		FileOutputStream fos = new FileOutputStream(config.outputLink); //result.out
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(map); //tree map forcheach sur chaque assotiation clé valeur 
-		
-		//chercher les clés de la tri map et faire une foreach sur le set et écrire dans une boucle foreach
-		
-		//rappelle du contexte
-		// objectifs
-		//déroulement de la présentation (début) coment ça va se passer
-		
-		//demo du programme
-		//ou sont les problèmes
-		//état des lieux
-		//class main en cap d'écran // ce qui n'allait pas
+		oos.writeObject(map); 
 			
 
 	            
