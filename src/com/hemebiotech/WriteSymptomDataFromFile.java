@@ -2,6 +2,7 @@ package com.hemebiotech;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
@@ -15,48 +16,33 @@ import java.util.TreeMap;
 
 public class WriteSymptomDataFromFile {
 	
-	
-	
-	
 
+	/*
+	 * constructeur par défaut
+	 * */
 	public WriteSymptomDataFromFile(TreeMap<String, Integer> countTreeMap) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void transfert(Map<String, Integer> map) throws IOException{
-
-		/**
-		 * 
-		 * Cette méthode prend en paramettre un Hashmap, la TreeMap permet de trier le fichier via un jeu de clé / valeur
-		 * 
-		 * puis le stocke dans un fichier de sortie, en l'ocurrence results.out
-		 * 
-		 */
 			
 		TreeMap<String, Integer> ordre = new TreeMap<>(map);
-		/*
-		 * Ici on boucle sur chaque occurence pour extraire et trier une ligne de mots clés
-		 * 
-		 * */
- 		
- 		System.out.println("==== List of symptoms ordred =====");
+		
+ 		FileWriter fos = new FileWriter(Config.outputLink); //result.out
+			
  		for (Map.Entry<String, Integer> entry : ordre.entrySet()) {
  			
-			System.out.println(entry.getKey()+ "  " + entry.getValue());
+ 			fos.write(entry.getKey()+ " : " + entry.getValue() + " \n");
+			
 		}
  		
- 		
+ 		fos.close();
 
-		FileOutputStream fos = new FileOutputStream(config.outputLink); //result.out
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(map); 
-			
-
-	            
+      
 	        }
 
 	public void write() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

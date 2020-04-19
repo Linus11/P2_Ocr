@@ -1,7 +1,7 @@
 package com.hemebiotech;
 
 
-public class config {
+public class Config {
 
 	public static String getInputlink() {
 		return inputLink;
@@ -20,7 +20,7 @@ public class config {
      * Les attributs stockent les liens vers le fichier à traiter et le fichier de sortie
      */
 	
-	public static final String inputLink = "C:/Users/Elev/eclipse-workspace-java-se/P2_Ocr/src/symptoms.txt";
-	public static final String outputLink = "C:/Users/Elev/eclipse-workspace-java-se/P2_Ocr/src/results.out"; 
+	public static final String inputLink = "src/symptoms.txt";
+	public static final String outputLink = "src/results.out"; 
 	
 }

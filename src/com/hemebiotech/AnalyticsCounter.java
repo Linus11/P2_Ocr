@@ -15,11 +15,11 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 		
 		/*
-		 * Fichier nettoyé externalisations des instantiations dans le fichier 
+		 * 
 		 * @See:  controller.java
 		 * */
 		
-		controller.executer();
+		Controller.executer();
 		
 		
 		

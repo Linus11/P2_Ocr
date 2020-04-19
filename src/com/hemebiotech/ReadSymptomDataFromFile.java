@@ -24,85 +24,64 @@ import java.util.Map;
 
 
 /**
- * Implémentation dd la classe ReadSymptomDataFromFile
+ * Implémentation de la classe ReadSymptomDataFromFile
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-
+	String file;
 	public ReadSymptomDataFromFile(String string) {
-		// TODO Auto-generated constructor stub
+		
+		file = string;
+		
 	}
 
 	/**
-	 * Récupérer le fichier de la liste des symptomes, le mettre dans une HashMap 'frequency' 
-	 * 
-	 */
-	
+	 *  Traitement de la liste des symptomes
+	 *  
+	 *  @return la liste des sympthomes et le nombre des occurences
+	 *  
+	  */
+			
 	
 	public  Map<String, Integer> getSymptoms(){
-		/**
-		 * Map<String, Integer> getSymptoms() retourn la liste des sympthomes et le nombre des occurences
-		 * @return la liste des sympthomes et le nombre des occurences
-		 */
 		
 		Map<String, Integer> frequency = new HashMap<>();
+		BufferedReader reader = null;
 		
-		/**
-		 * Lever une exception si le transfert du data est mis en échec 
-		 * 
-		 */
 		try {
-			Path path = Paths.get(System.getProperty("user.dir"))
-					.resolve(config.inputLink);
-			BufferedReader reader;
-			reader = new BufferedReader(new FileReader(path.toFile()));
-	
-			/**
-			 * déclarer un reader et l'affecter à un string 'line'
-			 * 
-			 */
-		String line = reader.readLine();
-		
-		/**
-		 * Si line n'est pas null boucler sur frequency 
-		 * compter le nombre des occurence de 'line' dans la liste des sympthome frequency
-		 * Si pas d'occurence ne pas incrémenter l'occurence '(line, 1)'
-		 * 
-		 */
-		while(line != null) {
-					
-					if(frequency.containsKey(line)) {
-						frequency.put(line, 
-								frequency.get(line) + 1);
-					} else {
-						frequency.put(line, 1);
-					}
 			
-			line = reader.readLine();
-		}
-		
-		
-		
-		//System.out.println("SIMO" + frequency);
+			
+			reader = new BufferedReader(new FileReader(file));
 	
-		 
-		
-		/**
-		 * Afficher la liste dans la console après tri		
-		 * 
-		 */
-		 
-//		 for(Map.Entry<String, Integer> items : frequency.entrySet()) {
-//			 
-//			System.out.println(items.getKey() + " " + items.getValue());
-//			
-//		 }
-		
+			
+			String line = reader.readLine();
+			
+			
+			while(line != null) {
+						
+						if(frequency.containsKey(line)) {
+							frequency.put(line, 
+									frequency.get(line) + 1);
+						} else {
+							frequency.put(line, 1);
+						}
+				
+				line = reader.readLine();
+			}	
 		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
+		} finally{
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+				
+					e.printStackTrace();
+				}
+			}
 		}
        
 		return frequency;
