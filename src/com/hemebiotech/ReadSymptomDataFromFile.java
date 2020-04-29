@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * Implémentation de la classe ReadSymptomDataFromFile
  *
@@ -50,13 +49,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		BufferedReader reader = null;
 		
 		try {
-			
-			
+					
 			reader = new BufferedReader(new FileReader(file));
 	
-			
 			String line = reader.readLine();
-			
 			
 			while(line != null) {
 						
@@ -88,9 +84,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 	}
 
-	
-	
-	
 }
 	
 	

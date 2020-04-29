@@ -14,11 +14,6 @@ public class Config {
 		return outputLink;
 	}
 	
-	/**
-     * Retourne le level du zéro.
-     * 
-     * Les attributs stockent les liens vers le fichier à traiter et le fichier de sortie
-     */
 	
 	public static final String inputLink = "src/symptoms.txt";
 	public static final String outputLink = "src/results.out"; 

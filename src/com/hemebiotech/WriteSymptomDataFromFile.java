@@ -16,19 +16,20 @@ import java.util.TreeMap;
 
 public class WriteSymptomDataFromFile {
 	
-
+	Map<String, Integer> map;
+	
 	/*
 	 * constructeur par défaut
 	 * */
-	public WriteSymptomDataFromFile(TreeMap<String, Integer> countTreeMap) {
-		
+	public WriteSymptomDataFromFile(Map<String, Integer> countTreeMap) {
+		map = countTreeMap;
 	}
 
-	public void transfert(Map<String, Integer> map) throws IOException{
+	public void transfert() throws IOException{
 			
 		TreeMap<String, Integer> ordre = new TreeMap<>(map);
 		
- 		FileWriter fos = new FileWriter(Config.outputLink); //result.out
+ 		FileWriter fos = new FileWriter(Config.outputLink); 
 			
  		for (Map.Entry<String, Integer> entry : ordre.entrySet()) {
  			
@@ -41,8 +42,4 @@ public class WriteSymptomDataFromFile {
       
 	        }
 
-	public void write() {
-		
-		
-	}
 }

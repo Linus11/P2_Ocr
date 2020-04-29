@@ -18,9 +18,9 @@ public class Controller {
 		
 		Map<String, Integer> symptome = read.getSymptoms();
 		
-		WriteSymptomDataFromFile write = new WriteSymptomDataFromFile(null);
+		WriteSymptomDataFromFile write = new WriteSymptomDataFromFile(symptome);
 		try {
-			write.transfert(symptome);
+			write.transfert();
 		} catch (IOException e) {
 			
 			e.printStackTrace();
