@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+/*
+ * 
+ * @See:  controller.java
+ * Implement la classe Controller
+ * 
+ * */
 public class AnalyticsCounter {
 
 	
 	public static void main(String args[]) throws Exception {
 		
-		/*
-		 * 
-		 * @See:  controller.java
-		 * */
 		
 		Controller.executer();
 		

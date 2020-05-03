@@ -40,7 +40,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 *  
 	 *  @return la liste des sympthomes et le nombre des occurences
 	 *  
-	  */
+	 **/
 			
 	
 	public  Map<String, Integer> getSymptoms(){

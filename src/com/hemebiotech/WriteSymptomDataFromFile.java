@@ -33,24 +33,39 @@ public class WriteSymptomDataFromFile {
 	  */
 	public void transfert()  {
 
-		try {
+		
 		
 		TreeMap<String, Integer> ordre = new TreeMap<>(map);
 		
- 		FileWriter fos = new FileWriter(Config.outputLink); 
+ 		FileWriter fos = null;
+		try {
+			fos = new FileWriter(Config.outputLink);
+		} catch (IOException e1) {
 			
+			e1.printStackTrace();
+		} 
+ 		try {
+ 			
  		for (Map.Entry<String, Integer> entry : ordre.entrySet()) {
  			
- 			fos.write(entry.getKey()+ " : " + entry.getValue() + " \n");
+ 			try {
+				fos.write(entry.getKey()+ " : " + entry.getValue() + " \n");
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
 			
 		}
  		
- 		fos.close();
+ 		
 						
-		}catch(Exception e) {
-		
-			e.printStackTrace();
-			
+		} finally {
+			try {
+				fos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
       
 	        }

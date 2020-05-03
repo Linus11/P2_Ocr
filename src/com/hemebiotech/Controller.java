@@ -6,7 +6,9 @@ import java.util.TreeMap;
 
 		/*
 		 * 
-		 * @see ReadSymptomDataFromFile  
+		 * @see ReadSymptomDataFromFile
+		 * Lier le fichier symptomes.txt  
+		 * Ecrire dans un fichier result.out
 		 * 
 		 * */
 public class Controller {
