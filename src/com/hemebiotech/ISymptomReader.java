@@ -10,5 +10,5 @@ import java.util.Map;
 
 public interface ISymptomReader {
 	
-	Map<String, Integer> getSymptoms ();
+	Map<String, Integer> getSymptoms();
 }

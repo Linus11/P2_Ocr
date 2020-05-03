@@ -12,19 +12,14 @@ import java.util.TreeMap;
 public class Controller {
 
 	
-	static void executer() {
+	static void executer() throws IOException {
 		
 		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(Config.inputLink);
 		
 		Map<String, Integer> symptome = read.getSymptoms();
 		
 		WriteSymptomDataFromFile write = new WriteSymptomDataFromFile(symptome);
-		try {
-			write.transfert();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
+		write.transfert();
 		
 	}
 	

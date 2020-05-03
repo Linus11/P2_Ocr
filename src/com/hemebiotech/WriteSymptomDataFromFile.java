@@ -25,8 +25,16 @@ public class WriteSymptomDataFromFile {
 		map = countTreeMap;
 	}
 
-	public void transfert() throws IOException{
-			
+	/**
+	 *  Traitement de la liste des symptomes
+	 *  
+	 *  la liste des sympthomes et le nombre des occurences puis l'enregistrer dans ule fichier results.out
+	 *  
+	  */
+	public void transfert()  {
+
+		try {
+		
 		TreeMap<String, Integer> ordre = new TreeMap<>(map);
 		
  		FileWriter fos = new FileWriter(Config.outputLink); 
@@ -38,7 +46,12 @@ public class WriteSymptomDataFromFile {
 		}
  		
  		fos.close();
-
+						
+		}catch(Exception e) {
+		
+			e.printStackTrace();
+			
+		}
       
 	        }
 
