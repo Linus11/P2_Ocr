@@ -1,4 +1,5 @@
 package com.hemebiotech;
+
 import java.awt.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,8 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 /*
  * 
  * @See:  controller.java
@@ -19,13 +18,9 @@ import java.util.Map;
  * */
 public class AnalyticsCounter {
 
-	
 	public static void main(String args[]) throws Exception {
-		
-		
+
 		Controller.executer();
-		
-		
-		
+
 	}
 }

@@ -1,6 +1,5 @@
 package com.hemebiotech;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,61 +28,58 @@ import java.util.Map;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	String file;
+
 	public ReadSymptomDataFromFile(String string) {
-		
+
 		file = string;
-		
+
 	}
 
 	/**
-	 *  Traitement de la liste des symptomes
-	 *  
-	 *  @return la liste des sympthomes et le nombre des occurences
-	 *  
+	 * Traitement de la liste des symptomes
+	 * 
+	 * @return la liste des sympthomes et le nombre des occurences
+	 * 
 	 **/
-			
-	
-	public  Map<String, Integer> getSymptoms(){
-		
+
+	public Map<String, Integer> getSymptoms() {
+
 		Map<String, Integer> frequency = new HashMap<>();
 		BufferedReader reader = null;
-		
+
 		try {
-					
+
 			reader = new BufferedReader(new FileReader(file));
-	
+
 			String line = reader.readLine();
-			
-			while(line != null) {
-						
-						if(frequency.containsKey(line)) {
-							frequency.put(line, 
-									frequency.get(line) + 1);
-						} else {
-							frequency.put(line, 1);
-						}
-				
+
+			while (line != null) {
+
+				if (frequency.containsKey(line)) {
+					frequency.put(line, frequency.get(line) + 1);
+				} else {
+					frequency.put(line, 1);
+				}
+
 				line = reader.readLine();
-			}	
-		
+			}
+
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
-		} finally{
-			if(reader != null) {
+		} finally {
+			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
-				
+
 					e.printStackTrace();
 				}
 			}
 		}
-       
+
 		return frequency;
-		
+
 	}
 
 }
-	
-	
